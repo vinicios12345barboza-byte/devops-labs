@@ -1,0 +1,12 @@
+# Histórico do Terminal
+.zsh_history
+.bash_history
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.py[cod]
+venv/

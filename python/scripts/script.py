@@ -9,5 +9,5 @@ print(f"Usuário: {nome}.\nIdade: {idade}.\nCargo: {cargo} na empresa {empresa}.
 
 if cargo == "DevOps":
     print ('Bem vindo ao Mundo DevOps :)')
-else:
-    print('Bem vindo ao cargo!')
+elif cargo == "Designer":
+    print('Bem vinda ao cargo Designer ❤️')

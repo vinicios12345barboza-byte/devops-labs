@@ -16,17 +16,70 @@ No Linux, as informações de usuários e grupos ficam gravadas em arquivos de c
 
 ## 2. Comandos Principais e Exercícios Práticos
 
-### Gerenciamento de Grupos e Usuários
+### Gerenciamento de Usuários
 ```bash
-# 1. Criar um novo grupo para a equipe de devops
-sudo groupadd devops-team
+# 1. Criar um novo usuário
+sudo adduser devops (com interatividade)
 
-# 2. Criar um novo usuário e adicioná-lo ao grupo devops-team
-sudo useradd -m -s /bin/bash -g devops-team devuser
+# 2. Mudar senha de usuário
+sudo passwd devops (pede apenas a senha nova)
 
-# 3. Definir senha para o novo usuário
-sudo passwd devuser
+# 3. Fazer login
+su - devops (faz login direto pro diretório home)
 
-# 4. Verificar se o usuário foi criado corretamente
-id devuser
-grep devuser /etc/passwd
+# 4. Vendo opções do usuário, Bloqueando senha & Desbloquando
+sudo passwd -S devops
+sudo passwd -l devops (Bloqueia a senha)
+sudo passwd -u devops (Desbloquia a senha)
+
+# 5. Bloquando & Desbloqueando a conta 
+sudo usermod -L devops (Bloqueia a conta)
+sudo usermod -U devops (Desbloqueia  a conta)
+
+# 6. Modificar nome
+sudo usermod -l dev_ops devops (Modifica nome de login -> nome-novo nome-antigo)
+sudo usermod -c 'Vinicios' dev_ops (Altera o Nome Completo (Comentário) )
+
+# 7. Alterar diretório home & Mover os arquivos antigos 
+sudo usermod -d /novo/home -m dev_ops
+
+# 8. Alterar shell padrão
+sudo usermod -s /bin/bash dev_ops
+
+# 9. Alterar UID único do usuário
+sudo usermod -u 1500 dev_ops
+
+
+# 10. Removendo usuário 
+sudo deluser dev_ops (Não remove diretório home)
+sudo deluser --remove-home dev_ops
+
+### Gerenciamento de Grupos
+
+# 1. Criar grupo
+sudo groupadd nome-grupo 
+sudo addgroup --gid 2330 nome-grupo (Permite colocar um GID específico)
+
+# 2. Adicionar usuário ao grupo
+sudo usermod -aG grupo usuário (Mais usado)
+sudo adduser usuário grupo (Interativo)
+sudo gpasswd -a usuário grupo
+
+# 3. Alterar grupo primário do usuário
+sudo usermod -g grupo usuário
+
+# 4. Remover usuário do grupo
+sudo gpasswd -d usuário grupo
+
+# 5. Adicionar senha no grupo
+sudo gpasswd grupo (Vai pedir pra colocar uma senha. Senha do grupo fica em /etc/gshadow)
+
+# 6. Usuário entrando no grupo (Colocando a senha)
+newgrp grupo
+
+# 7. Definir usuário como administrador
+sudo -A usuário grupo
+
+# 8. Remover grupo
+sudo groupdel grupo
+

@@ -58,3 +58,31 @@ chmod 755 teste-permissoes.sh
 
 # 5. Restringir acesso apenas ao dono (600)
 chmod 600 teste-permissoes.sh
+
+## 4. Gerenciamento de Dono e Grupo (`chown` e `chgrp`)
+Além de controlar *o que* pode ser feito (leitura, escrita e execução), o Linux controla *a quem* pertencem os arquivos.
+
+### O Comando `chown` (Change Owner)
+Altera o usuário proprietário e, opcionalmente, o grupo de um arquivo ou diretório.
+
+```bash
+# 1. Alterar apenas o dono do arquivo
+sudo chown vinicios arquivo.txt
+
+# 2. Alterar o dono e o grupo simultaneamente (dono:grupo)
+sudo chown vinicios:devops arquivo.txt
+
+# 3. Alterar de forma recursiva (-R) para todos os arquivos de um diretório
+sudo -R vinicios:devops /var/www/projeto/
+
+### O comando `chgrp` (Change Group)
+*`chgrp`** (Change Group) serve especificamente para modificar o grupo associado a um arquivo ou diretório.
+
+```bash
+# 1. Verificar o grupo atual de um arquivo
+ls -l arquivo.txt
+
+# 2. Alterar o grupo de um arquivo para um grupo existente (ex: devops)
+sudo chgrp devops arquivo.txt
+
+

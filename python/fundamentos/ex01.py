@@ -4,3 +4,10 @@
 msg = "Olá, Mundo DevOps!"
 print(msg)
 
+<<<<<<< HEAD:python/fundamentos/ex01.py
+=======
+# exercício 02: Respondendo o usuário
+nome = "Vinicios"
+print(f'É um prazer te conhecer, {nome}')
+
+>>>>>>> 79c7780 (Automated commit):python/fundamentos/estudos-python.py

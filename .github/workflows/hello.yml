@@ -9,4 +9,4 @@ jobs:
    runs-on: ubuntu-latest
    steps:
     - name: Exibir mensagem no log
-     run: echo 'GitHub Action funcionando com sucesso!'
+      run: echo 'GitHub Action funcionando com sucesso!'

@@ -5,7 +5,7 @@ on:
     branches: [ main ]
 
 jobs:
-  say-Hello
+  say-Hello:
    runs-on: ubuntu-latest
    steps:
     - name: Exibir mensagem no log
